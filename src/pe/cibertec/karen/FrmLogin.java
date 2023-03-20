@@ -122,8 +122,9 @@ public class FrmLogin extends JFrame {
 		username = txtUsername.getText();
 		password = txtPassword.getText();
 		if(password.contains("dz") && username.contains("Codeni")) {
-			JOptionPane.showMessageDialog(null, "gg", "login success", JOptionPane.CANCEL_OPTION);
-			
+			JOptionPane.showMessageDialog(null, "gg", "login success", JOptionPane.CANCEL_OPTION);					
+		}else {
+			JOptionPane.showMessageDialog(null, "login error", "faut pas tkdeb", JOptionPane.ERROR_MESSAGE);
 		}
 	}
 }
