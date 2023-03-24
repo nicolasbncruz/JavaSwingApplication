@@ -84,7 +84,6 @@ public class FrmConsultarCocina extends JFrame {
 		
 		txtPrecio = new JTextField();
 		txtPrecio.setEditable(false);
-		txtPrecio.setEnabled(false);
 		txtPrecio.setBounds(124, 49, 194, 20);
 		contentPane.add(txtPrecio);
 		txtPrecio.setColumns(10);
@@ -95,7 +94,6 @@ public class FrmConsultarCocina extends JFrame {
 		
 		txtAncho = new JTextField();
 		txtAncho.setEditable(false);
-		txtAncho.setEnabled(false);
 		txtAncho.setColumns(10);
 		txtAncho.setBounds(124, 80, 194, 20);
 		contentPane.add(txtAncho);
@@ -106,7 +104,6 @@ public class FrmConsultarCocina extends JFrame {
 		
 		txtAlto = new JTextField();
 		txtAlto.setEditable(false);
-		txtAlto.setEnabled(false);
 		txtAlto.setColumns(10);
 		txtAlto.setBounds(124, 111, 194, 20);
 		contentPane.add(txtAlto);
@@ -117,7 +114,6 @@ public class FrmConsultarCocina extends JFrame {
 		
 		txtFondo = new JTextField();
 		txtFondo.setEditable(false);
-		txtFondo.setEnabled(false);
 		txtFondo.setColumns(10);
 		txtFondo.setBounds(124, 139, 194, 20);
 		contentPane.add(txtFondo);
@@ -128,7 +124,6 @@ public class FrmConsultarCocina extends JFrame {
 		
 		txtQuemadores = new JTextField();
 		txtQuemadores.setEditable(false);
-		txtQuemadores.setEnabled(false);
 		txtQuemadores.setColumns(10);
 		txtQuemadores.setBounds(124, 167, 194, 20);
 		contentPane.add(txtQuemadores);
