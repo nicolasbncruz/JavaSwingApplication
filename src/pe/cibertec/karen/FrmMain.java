@@ -2,7 +2,9 @@ package pe.cibertec.karen;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
+import java.awt.Image;
 
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -86,6 +88,8 @@ public class FrmMain extends JFrame {
 	 */
 	public FrmMain() {
 		setTitle("Tienda 1.0");
+		Image icono = new ImageIcon(getClass().getResource("/icons/tienda.png")).getImage();
+		setIconImage(icono);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 913, 607);
 		
@@ -93,9 +97,15 @@ public class FrmMain extends JFrame {
 		setJMenuBar(menuBar);
 		
 		JMenu mnArchivo = new JMenu("Archivo");
+		ImageIcon iconoarchivo = new ImageIcon(getClass().getResource("/icons/archivo.png"));
+		ImageIcon imagenarchivo = new ImageIcon(iconoarchivo.getImage().getScaledInstance(30, 30, Image.SCALE_SMOOTH));
+		mnArchivo.setIcon(imagenarchivo);
 		menuBar.add(mnArchivo);
 		
 		mntmLogout = new JMenuItem("Logout");
+		ImageIcon iconocerrar = new ImageIcon(getClass().getResource("/icons/exit.png"));
+		ImageIcon imagencerrar = new ImageIcon(iconocerrar.getImage().getScaledInstance(25, 25, Image.SCALE_SMOOTH));
+		mntmLogout.setIcon(imagencerrar);
 		mntmLogout.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				actionPerformedMntmLogout(e);
@@ -104,9 +114,15 @@ public class FrmMain extends JFrame {
 		mnArchivo.add(mntmLogout);
 		
 		JMenu mnMantenimiento = new JMenu("Mantenimiento");
+		ImageIcon iconomantenimiento = new ImageIcon(getClass().getResource("/icons/mantenimiento.png"));
+		ImageIcon imagenmantenimiento = new ImageIcon(iconomantenimiento.getImage().getScaledInstance(30, 30, Image.SCALE_SMOOTH));
+		mnMantenimiento.setIcon(imagenmantenimiento);
 		menuBar.add(mnMantenimiento);
 		
 		JMenuItem mntmConsultarCocina = new JMenuItem("Consultar cocina");
+		ImageIcon iconoconsultar = new ImageIcon(getClass().getResource("/icons/consultar.png"));
+		ImageIcon imagenconsultar = new ImageIcon(iconoconsultar.getImage().getScaledInstance(25, 25, Image.SCALE_SMOOTH));
+		mntmConsultarCocina.setIcon(imagenconsultar);
 		mntmConsultarCocina.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				actionPerformedMntmConsultarCocina(e);
@@ -115,39 +131,75 @@ public class FrmMain extends JFrame {
 		mnMantenimiento.add(mntmConsultarCocina);
 		
 		JMenuItem mntmModificarCocina = new JMenuItem("Modificar cocina");
+		ImageIcon iconomodificar = new ImageIcon(getClass().getResource("/icons/modificar.png"));
+		ImageIcon imagenmodificar = new ImageIcon(iconomodificar.getImage().getScaledInstance(25, 25, Image.SCALE_SMOOTH));
+		mntmModificarCocina.setIcon(imagenmodificar);
 		mnMantenimiento.add(mntmModificarCocina);
 		
 		JMenuItem mntmListarCocinas = new JMenuItem("Listar cocinas");
+		ImageIcon iconolistar = new ImageIcon(getClass().getResource("/icons/listar.png"));
+		ImageIcon imagenlistar = new ImageIcon(iconolistar.getImage().getScaledInstance(25, 25, Image.SCALE_SMOOTH));
+		mntmListarCocinas.setIcon(imagenlistar);
 		mnMantenimiento.add(mntmListarCocinas);
 		
 		JMenu mnVentas = new JMenu("Ventas");
+		ImageIcon iconoventa = new ImageIcon(getClass().getResource("/icons/ventas.png"));
+		ImageIcon imagenventa = new ImageIcon(iconoventa.getImage().getScaledInstance(30, 30, Image.SCALE_SMOOTH));
+		mnVentas.setIcon(imagenventa);
 		menuBar.add(mnVentas);
 		
 		JMenuItem mntmVender = new JMenuItem("Vender");
+		ImageIcon iconovender = new ImageIcon(getClass().getResource("/icons/vender.png"));
+		ImageIcon imagenvender = new ImageIcon(iconovender.getImage().getScaledInstance(25, 25, Image.SCALE_SMOOTH));
+		mntmVender.setIcon(imagenvender);
 		mnVentas.add(mntmVender);
 		
 		JMenuItem mntmGenerarReportes = new JMenuItem("Generar reportes");
+		ImageIcon iconoreporte = new ImageIcon(getClass().getResource("/icons/reporte.png"));
+		ImageIcon imagenreporte = new ImageIcon(iconoreporte.getImage().getScaledInstance(25, 25, Image.SCALE_SMOOTH));
+		mntmGenerarReportes.setIcon(imagenreporte);
 		mnVentas.add(mntmGenerarReportes);
 		
 		JMenu mnConfiguracion = new JMenu("Configuraci\u00F3n");
+		ImageIcon iconoconfiguracion = new ImageIcon(getClass().getResource("/icons/configuracion.png"));
+		ImageIcon imagenconfiguracion = new ImageIcon(iconoconfiguracion.getImage().getScaledInstance(30, 30, Image.SCALE_SMOOTH));
+		mnConfiguracion.setIcon(imagenconfiguracion);
 		menuBar.add(mnConfiguracion);
 		
 		JMenuItem mntmConfigurarDescuentos = new JMenuItem("Configurar descuentos");
+		ImageIcon iconofiguraciondefecto = new ImageIcon(getClass().getResource("/icons/descuento.png"));
+		ImageIcon imagenconfiguraciondefecto = new ImageIcon(iconofiguraciondefecto.getImage().getScaledInstance(25, 25, Image.SCALE_SMOOTH));
+		mntmConfigurarDescuentos.setIcon(imagenconfiguraciondefecto);
 		mnConfiguracion.add(mntmConfigurarDescuentos);
 		
 		JMenuItem mntmConfigurarObsequios = new JMenuItem("Configurar obsequios");
+		ImageIcon iconoobsequio = new ImageIcon(getClass().getResource("/icons/obsequio.png"));
+		ImageIcon imagenobsequio = new ImageIcon(iconoobsequio.getImage().getScaledInstance(25, 25, Image.SCALE_SMOOTH));
+		mntmConfigurarObsequios.setIcon(imagenobsequio);
 		mnConfiguracion.add(mntmConfigurarObsequios);
 		
 		JMenuItem mntmConfigurarCantidadOptima = new JMenuItem("Configurar cantidad \u00F3ptima");
+		ImageIcon iconocantidad = new ImageIcon(getClass().getResource("/icons/cantidad.png"));
+		ImageIcon imagencantidad= new ImageIcon(iconocantidad.getImage().getScaledInstance(25, 25, Image.SCALE_SMOOTH));
+		mntmConfigurarCantidadOptima.setIcon(imagencantidad);
 		mnConfiguracion.add(mntmConfigurarCantidadOptima);
 		
 		JMenuItem mntmConfigurarCuotaDiaria = new JMenuItem("Configurar cuota diaria");
+		ImageIcon iconocuota = new ImageIcon(getClass().getResource("/icons/cuota.png"));
+		ImageIcon imagencuota = new ImageIcon(iconocuota.getImage().getScaledInstance(25, 25, Image.SCALE_SMOOTH));
+		mntmConfigurarCuotaDiaria.setIcon(imagencuota);
 		mnConfiguracion.add(mntmConfigurarCuotaDiaria);
 		
 		JMenu mnAyuda = new JMenu("Ayuda");
+		ImageIcon icoayuda = new ImageIcon(getClass().getResource("/icons/ayuda.png"));
+		ImageIcon imgayuda = new ImageIcon(icoayuda.getImage().getScaledInstance(30, 30, Image.SCALE_SMOOTH));
+		mnAyuda.setIcon(imgayuda);
 		menuBar.add(mnAyuda);
 		
 		JMenuItem mntmAcercaTienda = new JMenuItem("AcercaTienda");
+		ImageIcon iconoacerca = new ImageIcon(getClass().getResource("/icons/acercade.png"));
+		ImageIcon imagenacerca = new ImageIcon(iconoacerca.getImage().getScaledInstance(25, 25, Image.SCALE_SMOOTH));
+		mntmAcercaTienda.setIcon(imagenacerca);
 		mnAyuda.add(mntmAcercaTienda);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));

@@ -82,6 +82,8 @@ public class FrmLogin extends JFrame {
 	public FrmLogin() {
 		setBackground(new Color(255, 255, 255));
 		setTitle("Login");
+		Image icono = new ImageIcon(getClass().getResource("/icons/tienda.png")).getImage();
+		setIconImage(icono);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 810, 500);
 		contentPane = new JPanel();
