@@ -226,6 +226,11 @@ public class FrmLogin extends JFrame {
 			this.dispose();
 		} else {
 			JOptionPane.showMessageDialog(null, "Usuario o contraseña incorrectos", "ERROR", JOptionPane.ERROR_MESSAGE);
+			txtUsername.requestDefaultFocus();
+			txtUsername.setText("");
+			txtPassword.setText("");
+			focusLostTxtUsername(null);
+			focusLostTxtPassword(null);
 		}
 	}
 }
