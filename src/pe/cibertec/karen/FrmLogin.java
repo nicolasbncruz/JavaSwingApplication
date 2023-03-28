@@ -87,7 +87,7 @@ public class FrmLogin extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 810, 500);
 		contentPane = new JPanel();
-		contentPane.setBackground(new Color(240, 240, 255));
+		contentPane.setBackground(new Color(213, 213, 255));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);
@@ -110,7 +110,7 @@ public class FrmLogin extends JFrame {
 
 		lblNewLabel = new JLabel("");
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		Image img = new ImageIcon(FrmLogin.class.getResource("/pe/cibertec/icon/login.png")).getImage();
+		Image img = new ImageIcon(FrmLogin.class.getResource("/icons/login.png")).getImage();
 		ImageIcon imgIcon = new ImageIcon(img.getScaledInstance(354, 380, Image.SCALE_SMOOTH));
 		lblNewLabel.setIcon(imgIcon);
 		lblNewLabel.setBounds(10, 28, 354, 461);
@@ -150,7 +150,7 @@ public class FrmLogin extends JFrame {
 				mouseClickedLblExit(e);
 			}
 		});
-		lblExit.setIcon(new ImageIcon(FrmLogin.class.getResource("/pe/cibertec/icon/icons8_close_48px_1.png")));
+		lblExit.setIcon(new ImageIcon(FrmLogin.class.getResource("/icons/close.png")));
 		lblExit.setBounds(755, 11, 45, 45);
 		contentPane.add(lblExit);
 		
@@ -181,12 +181,11 @@ public class FrmLogin extends JFrame {
 		lblClean.setHorizontalAlignment(SwingConstants.CENTER);
 		lblClean.setForeground(Color.WHITE);
 		lblClean.setFont(new Font("Calibri", Font.BOLD, 25));
-		lblClean.setBounds(10, 11, 91, 37);
+		lblClean.setBounds(10, 22, 91, 26);
 		pnlBtnClean.add(lblClean);
 		clock();
 	}
-
-	FrmMain frmMain;
+	 
 	private JPanel pnlBtnLogin;
 	private JLabel lblLogin;
 	private JLabel lblExit;
@@ -207,11 +206,9 @@ public class FrmLogin extends JFrame {
 		username = txtUsername.getText();
 		password = txtPassword.getText();
 		if (password.equals("admin") && username.equals("admin")) {
-			JOptionPane.showMessageDialog(null, "Login exitoso", "SUCCESS", JOptionPane.INFORMATION_MESSAGE);
-			if (frmMain == null) {
-				frmMain = new FrmMain();
-				frmMain.setVisible(true);
-			}
+			JOptionPane.showMessageDialog(null, "Login exitoso", "SUCCESS", JOptionPane.INFORMATION_MESSAGE);			
+			FrmMain frmMain = new FrmMain();
+			frmMain.setVisible(true);			
 			this.dispose();
 		} else {
 			JOptionPane.showMessageDialog(null, "Usuario o contraseña incorrectos", "ERROR", JOptionPane.ERROR_MESSAGE);

@@ -13,6 +13,12 @@ import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Component;
+import javax.swing.JLabel;
+import java.awt.Font;
+import javax.swing.SwingConstants;
 
 public class FrmMain extends JFrame {
 	
@@ -94,9 +100,12 @@ public class FrmMain extends JFrame {
 		setBounds(100, 100, 913, 607);
 		
 		JMenuBar menuBar = new JMenuBar();
+		menuBar.setBackground(new Color(213, 213, 255));
 		setJMenuBar(menuBar);
 		
 		JMenu mnArchivo = new JMenu("Archivo");
+		mnArchivo.setHorizontalAlignment(SwingConstants.CENTER);
+		mnArchivo.setPreferredSize(new Dimension(115, 50));
 		ImageIcon iconoarchivo = new ImageIcon(getClass().getResource("/icons/archivo.png"));
 		ImageIcon imagenarchivo = new ImageIcon(iconoarchivo.getImage().getScaledInstance(30, 30, Image.SCALE_SMOOTH));
 		mnArchivo.setIcon(imagenarchivo);
@@ -114,6 +123,8 @@ public class FrmMain extends JFrame {
 		mnArchivo.add(mntmLogout);
 		
 		JMenu mnMantenimiento = new JMenu("Mantenimiento");
+		mnMantenimiento.setHorizontalAlignment(SwingConstants.CENTER);
+		mnMantenimiento.setPreferredSize(new Dimension(160, 50));
 		ImageIcon iconomantenimiento = new ImageIcon(getClass().getResource("/icons/mantenimiento.png"));
 		ImageIcon imagenmantenimiento = new ImageIcon(iconomantenimiento.getImage().getScaledInstance(30, 30, Image.SCALE_SMOOTH));
 		mnMantenimiento.setIcon(imagenmantenimiento);
@@ -143,6 +154,8 @@ public class FrmMain extends JFrame {
 		mnMantenimiento.add(mntmListarCocinas);
 		
 		JMenu mnVentas = new JMenu("Ventas");
+		mnVentas.setHorizontalAlignment(SwingConstants.CENTER);
+		mnVentas.setPreferredSize(new Dimension(140, 50));
 		ImageIcon iconoventa = new ImageIcon(getClass().getResource("/icons/ventas.png"));
 		ImageIcon imagenventa = new ImageIcon(iconoventa.getImage().getScaledInstance(30, 30, Image.SCALE_SMOOTH));
 		mnVentas.setIcon(imagenventa);
@@ -161,52 +174,83 @@ public class FrmMain extends JFrame {
 		mnVentas.add(mntmGenerarReportes);
 		
 		JMenu mnConfiguracion = new JMenu("Configuraci\u00F3n");
+		mnConfiguracion.setHorizontalAlignment(SwingConstants.CENTER);
+		mnConfiguracion.setPreferredSize(new Dimension(150, 50));
 		ImageIcon iconoconfiguracion = new ImageIcon(getClass().getResource("/icons/configuracion.png"));
 		ImageIcon imagenconfiguracion = new ImageIcon(iconoconfiguracion.getImage().getScaledInstance(30, 30, Image.SCALE_SMOOTH));
 		mnConfiguracion.setIcon(imagenconfiguracion);
 		menuBar.add(mnConfiguracion);
 		
 		JMenuItem mntmConfigurarDescuentos = new JMenuItem("Configurar descuentos");
+		mntmConfigurarDescuentos.setBackground(Color.WHITE);
 		ImageIcon iconofiguraciondefecto = new ImageIcon(getClass().getResource("/icons/descuento.png"));
 		ImageIcon imagenconfiguraciondefecto = new ImageIcon(iconofiguraciondefecto.getImage().getScaledInstance(25, 25, Image.SCALE_SMOOTH));
 		mntmConfigurarDescuentos.setIcon(imagenconfiguraciondefecto);
 		mnConfiguracion.add(mntmConfigurarDescuentos);
 		
 		JMenuItem mntmConfigurarObsequios = new JMenuItem("Configurar obsequios");
+		mntmConfigurarObsequios.setBackground(Color.WHITE);
 		ImageIcon iconoobsequio = new ImageIcon(getClass().getResource("/icons/obsequio.png"));
 		ImageIcon imagenobsequio = new ImageIcon(iconoobsequio.getImage().getScaledInstance(25, 25, Image.SCALE_SMOOTH));
 		mntmConfigurarObsequios.setIcon(imagenobsequio);
 		mnConfiguracion.add(mntmConfigurarObsequios);
 		
 		JMenuItem mntmConfigurarCantidadOptima = new JMenuItem("Configurar cantidad \u00F3ptima");
+		mntmConfigurarCantidadOptima.setBackground(Color.WHITE);
 		ImageIcon iconocantidad = new ImageIcon(getClass().getResource("/icons/cantidad.png"));
 		ImageIcon imagencantidad= new ImageIcon(iconocantidad.getImage().getScaledInstance(25, 25, Image.SCALE_SMOOTH));
 		mntmConfigurarCantidadOptima.setIcon(imagencantidad);
 		mnConfiguracion.add(mntmConfigurarCantidadOptima);
 		
 		JMenuItem mntmConfigurarCuotaDiaria = new JMenuItem("Configurar cuota diaria");
+		mntmConfigurarCuotaDiaria.setBackground(Color.WHITE);
 		ImageIcon iconocuota = new ImageIcon(getClass().getResource("/icons/cuota.png"));
 		ImageIcon imagencuota = new ImageIcon(iconocuota.getImage().getScaledInstance(25, 25, Image.SCALE_SMOOTH));
 		mntmConfigurarCuotaDiaria.setIcon(imagencuota);
 		mnConfiguracion.add(mntmConfigurarCuotaDiaria);
 		
 		JMenu mnAyuda = new JMenu("Ayuda");
+		mnAyuda.setHorizontalAlignment(SwingConstants.CENTER);
+		mnAyuda.setPreferredSize(new Dimension(150, 50));
 		ImageIcon icoayuda = new ImageIcon(getClass().getResource("/icons/ayuda.png"));
 		ImageIcon imgayuda = new ImageIcon(icoayuda.getImage().getScaledInstance(30, 30, Image.SCALE_SMOOTH));
 		mnAyuda.setIcon(imgayuda);
 		menuBar.add(mnAyuda);
 		
 		JMenuItem mntmAcercaTienda = new JMenuItem("AcercaTienda");
+		mntmAcercaTienda.setBackground(Color.WHITE);
 		ImageIcon iconoacerca = new ImageIcon(getClass().getResource("/icons/acercade.png"));
 		ImageIcon imagenacerca = new ImageIcon(iconoacerca.getImage().getScaledInstance(25, 25, Image.SCALE_SMOOTH));
 		mntmAcercaTienda.setIcon(imagenacerca);
 		mnAyuda.add(mntmAcercaTienda);
 		contentPane = new JPanel();
+		contentPane.setBackground(Color.WHITE);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);
 		setLocationRelativeTo(null);
 		contentPane.setLayout(null);
+		
+		JLabel lblNewLabel = new JLabel("");
+		lblNewLabel.setIcon(new ImageIcon(FrmMain.class.getResource("/icons/backgroud.jpeg")));
+		lblNewLabel.setBounds(10, 80, 877, 425);
+		contentPane.add(lblNewLabel);
+		
+		JLabel lblTitle = new JLabel("FIRST KITCHEN");
+		lblTitle.setBackground(new Color(183, 183, 255));
+		lblTitle.setForeground(new Color(121, 121, 255));
+		lblTitle.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblTitle.setFont(new Font("Arial", Font.BOLD, 50));
+		lblTitle.setBounds(10, 11, 545, 58);
+		contentPane.add(lblTitle);
+		
+		JLabel lblStore = new JLabel("STORE");
+		lblStore.setHorizontalAlignment(SwingConstants.LEFT);
+		lblStore.setForeground(new Color(53, 215, 170));
+		lblStore.setFont(new Font("Arial", Font.BOLD, 50));
+		lblStore.setBackground(new Color(183, 183, 255));
+		lblStore.setBounds(565, 11, 322, 58);
+		contentPane.add(lblStore);
 	}
 	
 	FrmConsultarCocina frmConsultarCocina;
