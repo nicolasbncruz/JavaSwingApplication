@@ -96,39 +96,16 @@ public class FrmLogin extends JFrame {
 		contentPane.setLayout(null);
 
 		txtUsername = new JTextField();
-		txtUsername.addFocusListener(new FocusAdapter() {
-			@Override
-			public void focusGained(FocusEvent e) {
-				focusGainedTxtUsername(e);
-			}
-			@Override
-			public void focusLost(FocusEvent e) {
-				focusLostTxtUsername(e);
-			}
-		});
-		txtUsername.setMargin(new Insets(10, 20, 10, 10));
-		txtUsername.setText("Usuario");
+		txtUsername.setMargin(new Insets(10, 20, 10, 10));		
 		txtUsername.setFont(new Font("Calibri", Font.PLAIN, 18));
-		txtUsername.setBounds(423, 151, 315, 59);
+		txtUsername.setBounds(423, 171, 350, 45);
 		contentPane.add(txtUsername);
 		txtUsername.setColumns(10);
 
-		txtPassword = new JPasswordField();
-		txtPassword.addFocusListener(new FocusAdapter() {
-			@Override
-			public void focusGained(FocusEvent e) {
-				focusGainedTxtPassword(e);
-			}
-			@Override
-			public void focusLost(FocusEvent e) {
-				focusLostTxtPassword(e);
-			}
-		});
+		txtPassword = new JPasswordField();		
 		txtPassword.setMargin(new Insets(10, 20, 10, 2));
-		txtPassword.setEchoChar((char)0);
-		txtPassword.setText("Password");
 		txtPassword.setFont(new Font("Calibri", Font.PLAIN, 18));
-		txtPassword.setBounds(423, 231, 315, 59);
+		txtPassword.setBounds(423, 258, 350, 45);
 		contentPane.add(txtPassword);
 
 		lblNewLabel = new JLabel("");
@@ -155,7 +132,7 @@ public class FrmLogin extends JFrame {
 		});
 		pnlBtnLogin.setBackground(new Color(121, 121, 255));
 		pnlBtnLogin.setFont(new Font("Calibri", Font.BOLD, 25));
-		pnlBtnLogin.setBounds(423, 346, 315, 59);
+		pnlBtnLogin.setBounds(423, 346, 215, 59);
 		contentPane.add(pnlBtnLogin);
 		pnlBtnLogin.setLayout(null);
 		
@@ -163,7 +140,7 @@ public class FrmLogin extends JFrame {
 		lblLogin.setHorizontalAlignment(SwingConstants.CENTER);
 		lblLogin.setForeground(new Color(255, 255, 255));
 		lblLogin.setFont(new Font("Calibri", Font.BOLD, 25));
-		lblLogin.setBounds(84, 11, 155, 48);
+		lblLogin.setBounds(30, 11, 155, 48);
 		pnlBtnLogin.add(lblLogin);
 		
 		lblExit = new JLabel("");
@@ -176,6 +153,36 @@ public class FrmLogin extends JFrame {
 		lblExit.setIcon(new ImageIcon(FrmLogin.class.getResource("/pe/cibertec/icon/icons8_close_48px_1.png")));
 		lblExit.setBounds(755, 11, 45, 45);
 		contentPane.add(lblExit);
+		
+		lblUsuario = new JLabel("Usuario");
+		lblUsuario.setFont(new Font("Calibri", Font.PLAIN, 18));
+		lblUsuario.setBounds(423, 137, 123, 23);
+		contentPane.add(lblUsuario);
+		
+		lblPassword = new JLabel("Password");
+		lblPassword.setFont(new Font("Calibri", Font.PLAIN, 18));
+		lblPassword.setBounds(423, 227, 123, 23);
+		contentPane.add(lblPassword);
+		
+		pnlBtnClean = new JPanel();
+		pnlBtnClean.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				mouseClickedPnlBtnClean(e);
+			}
+		});
+		pnlBtnClean.setLayout(null);
+		pnlBtnClean.setFont(new Font("Calibri", Font.BOLD, 25));
+		pnlBtnClean.setBackground(new Color(53, 215, 170));
+		pnlBtnClean.setBounds(659, 346, 114, 59);
+		contentPane.add(pnlBtnClean);
+		
+		lblClean = new JLabel("LIMPIAR");
+		lblClean.setHorizontalAlignment(SwingConstants.CENTER);
+		lblClean.setForeground(Color.WHITE);
+		lblClean.setFont(new Font("Calibri", Font.BOLD, 25));
+		lblClean.setBounds(10, 11, 91, 37);
+		pnlBtnClean.add(lblClean);
 		clock();
 	}
 
@@ -183,56 +190,37 @@ public class FrmLogin extends JFrame {
 	private JPanel pnlBtnLogin;
 	private JLabel lblLogin;
 	private JLabel lblExit;
+	private JLabel lblUsuario;
+	private JLabel lblPassword;
+	private JPanel pnlBtnClean;
+	private JLabel lblClean;
+	
 	protected void mouseClickedLblExit(MouseEvent e) {
 		if(JOptionPane.showConfirmDialog(null, "Estas seguro de salir", "Confirmacion", JOptionPane.YES_NO_OPTION)==0) {
 			System.exit(0);	
 		}
 		
 	}
-	protected void focusGainedTxtUsername(FocusEvent e) {
-		if(txtUsername.getText().equals("Usuario")) {
-			txtUsername.setText("");
-		}else {
-			txtUsername.selectAll();
-		}
-	}
-	protected void focusGainedTxtPassword(FocusEvent e) {
-		if(txtPassword.getText().equals("Password")) {
-			txtPassword.setEchoChar('●');
-			txtPassword.setText("");
-		}else {
-			txtPassword.selectAll();
-		}				
-	}
-	protected void focusLostTxtUsername(FocusEvent e) {
-		if(txtUsername.getText().equals("")) {
-			txtUsername.setText("Usuario");
-		}
-	}
-	protected void focusLostTxtPassword(FocusEvent e) {
-		if(txtPassword.getText().equals("")) {
-			txtPassword.setText("Password");
-			txtPassword.setEchoChar((char)0);
-		}
-	}
+	
 	protected void mouseClickedPnlBtnLogin(MouseEvent e) {
 		String username, password;
 		username = txtUsername.getText();
 		password = txtPassword.getText();
-		if (password.contains("admin") && username.contains("admin")) {
+		if (password.equals("admin") && username.equals("admin")) {
 			JOptionPane.showMessageDialog(null, "Login exitoso", "SUCCESS", JOptionPane.INFORMATION_MESSAGE);
 			if (frmMain == null) {
 				frmMain = new FrmMain();
 				frmMain.setVisible(true);
-			} 
+			}
 			this.dispose();
 		} else {
 			JOptionPane.showMessageDialog(null, "Usuario o contraseña incorrectos", "ERROR", JOptionPane.ERROR_MESSAGE);
-			txtUsername.requestDefaultFocus();
-			txtUsername.setText("");
-			txtPassword.setText("");
-			focusLostTxtUsername(null);
-			focusLostTxtPassword(null);
+			txtUsername.requestFocus();
 		}
+	}
+	protected void mouseClickedPnlBtnClean(MouseEvent e) {
+		txtUsername.setText("");
+		txtPassword.setText("");
+		txtUsername.requestFocus();
 	}
 }
