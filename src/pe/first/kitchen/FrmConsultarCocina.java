@@ -1,4 +1,4 @@
-package pe.cibertec.karen;
+package pe.first.kitchen;
 
 import java.awt.EventQueue;
 

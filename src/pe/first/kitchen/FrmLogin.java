@@ -1,4 +1,4 @@
-package pe.cibertec.karen;
+package pe.first.kitchen;
 
 import java.awt.EventQueue;
 
@@ -197,8 +197,7 @@ public class FrmLogin extends JFrame {
 	protected void mouseClickedLblExit(MouseEvent e) {
 		if(JOptionPane.showConfirmDialog(null, "Estas seguro de salir", "Confirmacion", JOptionPane.YES_NO_OPTION)==0) {
 			System.exit(0);	
-		}
-		
+		}		
 	}
 	
 	protected void mouseClickedPnlBtnLogin(MouseEvent e) {
@@ -208,7 +207,8 @@ public class FrmLogin extends JFrame {
 		if (password.equals("admin") && username.equals("admin")) {
 			JOptionPane.showMessageDialog(null, "Login exitoso", "SUCCESS", JOptionPane.INFORMATION_MESSAGE);			
 			FrmMain frmMain = new FrmMain();
-			frmMain.setVisible(true);			
+			frmMain.setVisible(true);		
+			frmMain.setLocationRelativeTo(this);
 			this.dispose();
 		} else {
 			JOptionPane.showMessageDialog(null, "Usuario o contraseña incorrectos", "ERROR", JOptionPane.ERROR_MESSAGE);
