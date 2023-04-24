@@ -150,6 +150,14 @@ public class FrmMain extends JFrame {
 		ImageIcon iconomodificar = new ImageIcon(getClass().getResource("/icons/modificar.png"));
 		ImageIcon imagenmodificar = new ImageIcon(
 				iconomodificar.getImage().getScaledInstance(25, 25, Image.SCALE_SMOOTH));
+		
+		JMenuItem mntmMantenerAlumnos = new JMenuItem("Mantenimiento Alumnos");
+		mntmMantenerAlumnos.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				actionPerformedMntmMantenerAlumnos(e);
+			}
+		});
+		mnMantenimiento.add(mntmMantenerAlumnos);
 		mntmModificarCocina.setIcon(imagenmodificar);
 		mnMantenimiento.add(mntmModificarCocina);
 
@@ -277,4 +285,12 @@ public class FrmMain extends JFrame {
 		frmLogin.setVisible(true);
 		frmLogin.setLocationRelativeTo(this);
 	}
+	
+	protected void actionPerformedMntmMantenerAlumnos(ActionEvent e) {
+		MantenerAlumno alumno = new MantenerAlumno();
+		alumno.setVisible(true);
+		alumno.setLocationRelativeTo(this);
+	}
+	
+	
 }

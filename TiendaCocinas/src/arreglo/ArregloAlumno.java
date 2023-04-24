@@ -41,7 +41,7 @@ public class ArregloAlumno {
 	
 	public void guardarAlumno() {
 		try {
-			PrintWriter gu = new PrintWriter(new FileWriter("./data/Alumno.txt"));
+			PrintWriter gu = new PrintWriter(new FileWriter("Alumno.txt"));
 			for(int i = 0; i < cantidadAlumno(); i ++) {
 				String alumn = obtenerAlumno(i).getCodAlumno()+";"+
 							   obtenerAlumno(i).getNombres()+";"+
@@ -58,9 +58,9 @@ public class ArregloAlumno {
 		}
 	}
 
-	private void leerAlumno() {		
+	public void leerAlumno() {		
 		try {
-			BufferedReader leer = new BufferedReader(new FileReader("./data/Alumno.txt"));
+			BufferedReader leer = new BufferedReader(new FileReader("Alumno.txt"));
 			String val;
 			Alumno a = null;
 			while ((val=leer.readLine())!=null) {
@@ -76,7 +76,7 @@ public class ArregloAlumno {
 				agregarAlumno(a);
 			}
 			leer.close();
-		}catch (Exception e) {
+		} catch (Exception e) {
 			JOptionPane.showMessageDialog(null, "No se encontraron datos");
 		}
 		

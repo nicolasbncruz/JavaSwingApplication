@@ -137,6 +137,7 @@ public class MantenerAlumno extends JDialog {
 		JButton btnRegistrar = new JButton("Registrar");
 		btnRegistrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				do_btnRegistrar_actionPerformed(e);
 			}
 		});
 		btnRegistrar.setBounds(603, 111, 115, 26);
@@ -192,10 +193,11 @@ public class MantenerAlumno extends JDialog {
 		
 	}
 
-	ArregloAlumno alum = null;
+	ArregloAlumno alum = null; //new ArregloAlumno();
 	Alumno a = null;
 	
-	public void listar() {		
+	public void listar() {
+		alum = new ArregloAlumno();
 		modelT.setRowCount(0);
 		for(int i = 0; i < alum.cantidadAlumno(); i++) {
 			a = alum.obtenerAlumno(i);
@@ -210,6 +212,84 @@ public class MantenerAlumno extends JDialog {
 			};
 			modelT.addRow(fila);
 		}
+	}
+	
+	protected void do_btnRegistrar_actionPerformed(ActionEvent e) {
+		if(txtEdad.getText().isEmpty()) {
+			JOptionPane.showMessageDialog(this, "Ingrese la Edad");
+			txtEdad.requestFocus();
+			return;
+		}
+		if(txtCelular.getText().isEmpty()) {
+			JOptionPane.showMessageDialog(this, "Ingrese el Nro Celular");
+			txtCelular.requestFocus();
+			return;
+		}
+		if(txtDni.getText().isEmpty()) {
+			JOptionPane.showMessageDialog(this, "Ingrese el Nro DNI");
+			txtDni.requestFocus();
+			return;
+		}
+		if(txtDni.getText().length()!=8) {
+			JOptionPane.showMessageDialog(this, "El Dni debe ser de 8 digitos");
+			txtDni.requestFocus();
+			return;
+		}
+		for(int i=0; i < txtDni.getText().length(); i++) {
+			char c = txtDni.getText().charAt(i);
+			if(Character.isLetter(c)) {
+				JOptionPane.showMessageDialog(this, "El DNI solo debe contener Digitos");
+				txtDni.requestFocus();
+				return;
+			}
+		}
+		for(int i=0; i < alum.cantidadAlumno(); i++) {			
+			if(txtDni.getText().equals(alum.obtenerAlumno(i).getDni())) {
+				JOptionPane.showMessageDialog(this, "El DNI ya existe en el sistema"+ "\n"+ "Ingrese otro DNI");
+				txtDni.requestFocus();
+				return;
+			}
+		}
+		for(int i=0; i < txtEdad.getText().length(); i++) {
+			char c = txtEdad.getText().charAt(i);
+			if(Character.isLetter(c)) {
+				JOptionPane.showMessageDialog(this, "La Edad solo debe contener Digitos");
+				txtEdad.requestFocus();
+				return;
+			}
+		}
+		for(int i=0; i < txtCelular.getText().length(); i++) {
+			char c = txtCelular.getText().charAt(i);
+			if(Character.isLetter(c)) {
+				JOptionPane.showMessageDialog(this, "El Celular solo debe contener Digitos");
+				txtCelular.requestFocus();
+				return;
+			}
+		}
+		
+		alum = new ArregloAlumno();
+		int cod=0;
+		if(alum.cantidadAlumno()==0) {
+			cod = alum.cantidadAlumno()+1;
+		}else {
+			cod = (alum.obtenerAlumno(alum.cantidadAlumno()-1).getCodAlumno())+1;
+		
+		}
+		String nom = txtNombres.getText();
+		String ape = txtApellidos.getText();
+		String dni = txtDni.getText();
+		int edad = Integer.parseInt(txtEdad.getText());
+		int cel = Integer.parseInt(txtCelular.getText());
+		int estad = 0;
+		a = new Alumno(cod, nom, ape, dni, edad, cel, estad);
+		alum.agregarAlumno(a);
+		JOptionPane.showMessageDialog(this, "Agregado correctamente");
+		alum.guardarAlumno();
+		listar();
+		
+		lblCodigoValue.setText("");
+		
+		
 	}
 	
 	public void habilitarCampos() {
