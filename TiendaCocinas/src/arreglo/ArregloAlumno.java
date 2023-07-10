@@ -42,7 +42,7 @@ public class ArregloAlumno {
 	public void guardarAlumno() {
 		try {
 			PrintWriter gu = new PrintWriter(new FileWriter("Alumno.txt"));
-			for(int i = 0; i < cantidadAlumno(); i ++) {
+			for(int i = 0; i < cantidadAlumno(); i++) {
 				String alumn = obtenerAlumno(i).getCodAlumno()+";"+
 							   obtenerAlumno(i).getNombres()+";"+
 							   obtenerAlumno(i).getApellidos()+";"+
@@ -52,7 +52,7 @@ public class ArregloAlumno {
 							   obtenerAlumno(i).getEstado();
 				gu.println(alumn);
 			}
-			gu.close();			
+			gu.close();
 		}catch (Exception e) {
 			JOptionPane.showMessageDialog(null, "No se guardo los datos");
 		}
@@ -82,13 +82,14 @@ public class ArregloAlumno {
 		
 	}
 	
-	public String nuevoCodigo() {
+	public String nuevoCodigo(int i) {
 		String c = "2023";
+		System.out.println(cantidadAlumno());
 		if(cantidadAlumno()==0) {
 			int cd = 1000 + (cantidadAlumno()+1);
 			return c  + cd;
-		}else {
-			int nv = 1000 + (obtenerAlumno(cantidadAlumno()-1).getCodAlumno())+1;
+		} else {
+			int nv = 1000 + (obtenerAlumno(cantidadAlumno()-1).getCodAlumno())-(cantidadAlumno()-1) + i;
 			return c + nv;
 		}
 	}

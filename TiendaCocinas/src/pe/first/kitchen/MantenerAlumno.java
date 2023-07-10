@@ -202,7 +202,8 @@ public class MantenerAlumno extends JDialog {
 		for(int i = 0; i < alum.cantidadAlumno(); i++) {
 			a = alum.obtenerAlumno(i);
 			Object fila[] = {
-				alum.nuevoCodigo(),
+				//a.getCodAlumno(),
+				alum.nuevoCodigo(i),
 				a.getNombres(),
 				a.getApellidos(),
 				a.getDni(),
@@ -210,7 +211,7 @@ public class MantenerAlumno extends JDialog {
 				a.getCelular(),
 				a.nombreEstado()
 			};
-			modelT.addRow(fila);
+			modelT.addRow(fila);			
 		}
 	}
 	
@@ -231,7 +232,7 @@ public class MantenerAlumno extends JDialog {
 			return;
 		}
 		if(txtDni.getText().length()!=8) {
-			JOptionPane.showMessageDialog(this, "El Dni debe ser de 8 digitos");
+			JOptionPane.showMessageDialog(this, "El DNI debe ser de 8 digitos");
 			txtDni.requestFocus();
 			return;
 		}
@@ -267,7 +268,7 @@ public class MantenerAlumno extends JDialog {
 			}
 		}
 		
-		//alum = new ArregloAlumno();
+		alum = new ArregloAlumno();
 		int cod=0;
 		if(alum.cantidadAlumno()==0) {
 			cod = alum.cantidadAlumno()+1;
@@ -280,16 +281,19 @@ public class MantenerAlumno extends JDialog {
 		String dni = txtDni.getText();
 		int edad = Integer.parseInt(txtEdad.getText());
 		int cel = Integer.parseInt(txtCelular.getText());
-		int estad = 0;
+		int estad = 0; //cboEstado.getSelectedIndex();
 		a = new Alumno(cod, nom, ape, dni, edad, cel, estad);
 		alum.agregarAlumno(a);
 		JOptionPane.showMessageDialog(this, "Agregado correctamente");
 		alum.guardarAlumno();
 		listar();
 		
-		lblCodigoValue.setText("");
-		
-		
+		lblCodigoValue.setText("-");		
+		txtNombres.setText("");
+		txtApellidos.setText("");
+		txtCelular.setText("");
+		txtEdad.setText("");
+		txtDni.setText("");		
 	}
 	
 	public void habilitarCampos() {
