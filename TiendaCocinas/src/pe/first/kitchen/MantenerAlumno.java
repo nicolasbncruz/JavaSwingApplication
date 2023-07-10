@@ -267,7 +267,7 @@ public class MantenerAlumno extends JDialog {
 			}
 		}
 		
-		alum = new ArregloAlumno();
+		//alum = new ArregloAlumno();
 		int cod=0;
 		if(alum.cantidadAlumno()==0) {
 			cod = alum.cantidadAlumno()+1;
